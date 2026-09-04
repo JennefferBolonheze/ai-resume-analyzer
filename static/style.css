@@ -1,0 +1,1012 @@
+/* =========================
+   RESET
+========================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    min-height: 100vh;
+
+    font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+
+    background:
+        radial-gradient(
+            circle at top left,
+            rgba(230, 130, 180, 0.15),
+            transparent 30%
+        ),
+        radial-gradient(
+            circle at bottom right,
+            rgba(145, 90, 180, 0.12),
+            transparent 28%
+        ),
+        #120d12;
+
+    color: #f8edf3;
+
+    padding: 42px 24px;
+}
+
+
+/* =========================
+   CONTAINER
+========================= */
+
+.container {
+    width: 100%;
+
+    max-width: 1180px;
+
+    margin: 0 auto;
+}
+
+
+/* =========================
+   HERO
+========================= */
+
+.hero {
+    text-align: center;
+
+    margin-bottom: 38px;
+}
+
+.tag {
+    color: #ef8fb2;
+
+    font-size: 12px;
+    font-weight: bold;
+
+    letter-spacing: 2px;
+
+    margin-bottom: 12px;
+}
+
+.hero h1 {
+    font-size: 48px;
+
+    margin-bottom: 14px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #ffffff,
+            #f0a0bd
+        );
+
+    background-clip: text;
+    -webkit-background-clip: text;
+
+    color: transparent;
+    -webkit-text-fill-color: transparent;
+}
+
+.subtitle {
+    max-width: 700px;
+
+    margin: 0 auto;
+
+    color: #bbaab3;
+
+    font-size: 17px;
+
+    line-height: 1.6;
+}
+
+
+/* =========================
+   FORM
+========================= */
+
+.analyzer-form {
+    margin-bottom: 36px;
+}
+
+.input-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(2, 1fr);
+
+    gap: 24px;
+
+    margin-bottom: 22px;
+}
+
+
+/* =========================
+   INPUT CARD
+========================= */
+
+.input-card {
+    padding: 24px;
+
+    border:
+        1px solid #4d2d3c;
+
+    border-radius: 22px;
+
+    background:
+        linear-gradient(
+            145deg,
+            #21151c,
+            #180f14
+        );
+
+    box-shadow:
+        0 14px 35px
+        rgba(0, 0, 0, 0.18);
+
+    transition: 0.3s ease;
+}
+
+.input-card:hover {
+    transform:
+        translateY(-3px);
+
+    border-color:
+        #765066;
+}
+
+
+/* =========================
+   TITULO INPUT
+========================= */
+
+.input-title {
+    display: flex;
+
+    align-items: center;
+
+    gap: 13px;
+
+    margin-bottom: 20px;
+}
+
+.input-title > span {
+    font-size: 27px;
+}
+
+.input-title h2 {
+    font-size: 20px;
+
+    color: #f8edf3;
+}
+
+.input-label-small {
+    color: #ef8fb2;
+
+    font-size: 10px;
+    font-weight: bold;
+
+    letter-spacing: 1.5px;
+
+    margin-bottom: 4px;
+}
+
+
+/* =========================
+   UPLOAD
+========================= */
+
+.upload-area {
+    text-align: center;
+
+    padding:
+        28px 20px;
+
+    border:
+        1px dashed #704257;
+
+    border-radius: 18px;
+
+    background:
+        rgba(
+            239,
+            143,
+            178,
+            0.03
+        );
+
+    transition:
+        0.3s ease;
+}
+
+.upload-area:hover {
+    border-color:
+        #ef8fb2;
+
+    background:
+        rgba(
+            239,
+            143,
+            178,
+            0.06
+        );
+}
+
+.upload-icon {
+    display: block;
+
+    margin-bottom: 10px;
+
+    font-size: 32px;
+}
+
+.upload-title {
+    color: #f7dce7;
+
+    font-size: 16px;
+    font-weight: bold;
+
+    margin-bottom: 7px;
+}
+
+.upload-description {
+    color: #99858f;
+
+    font-size: 13px;
+
+    margin-bottom: 18px;
+
+    line-height: 1.5;
+}
+
+
+/* INPUT FILE ESCONDIDO */
+
+#resume_file {
+    display: none;
+}
+
+
+/* BOTÃO UPLOAD */
+
+.upload-button {
+    display: inline-block;
+
+    padding:
+        11px 18px;
+
+    border:
+        1px solid #86546c;
+
+    border-radius: 12px;
+
+    cursor: pointer;
+
+    background:
+        #291820;
+
+    color:
+        #f3a1be;
+
+    font-size: 13px;
+
+    font-weight: bold;
+
+    transition:
+        0.3s ease;
+}
+
+.upload-button:hover {
+    transform:
+        translateY(-2px);
+
+    border-color:
+        #ef8fb2;
+
+    background:
+        #351d28;
+}
+
+.file-name {
+    margin-top: 14px;
+
+    color: #b9dec6;
+
+    font-size: 13px;
+
+    word-break: break-word;
+}
+
+
+/* =========================
+   DIVISOR
+========================= */
+
+.divider {
+    display: flex;
+
+    align-items: center;
+
+    gap: 12px;
+
+    margin:
+        20px 0;
+
+    color:
+        #77656f;
+
+    font-size: 10px;
+
+    font-weight: bold;
+
+    letter-spacing: 1px;
+}
+
+.divider::before,
+.divider::after {
+    content: "";
+
+    height: 1px;
+
+    flex: 1;
+
+    background:
+        #3d2932;
+}
+
+
+/* =========================
+   TEXTAREA
+========================= */
+
+.textarea-label {
+    display: block;
+
+    margin-bottom: 11px;
+
+    color: #e7c8d5;
+
+    font-size: 13px;
+
+    font-weight: bold;
+}
+
+textarea {
+    width: 100%;
+
+    min-height: 220px;
+
+    padding: 18px;
+
+    resize: vertical;
+
+    border:
+        1px solid #3f2933;
+
+    border-radius: 16px;
+
+    outline: none;
+
+    background:
+        #120c10;
+
+    color:
+        #f8edf3;
+
+    font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+
+    font-size: 14px;
+
+    line-height: 1.6;
+
+    transition:
+        0.3s ease;
+}
+
+textarea::placeholder {
+    color:
+        #77656f;
+}
+
+textarea:focus {
+    border-color:
+        #ef8fb2;
+
+    box-shadow:
+        0 0 0 3px
+        rgba(
+            239,
+            143,
+            178,
+            0.08
+        );
+}
+
+.job-textarea {
+    min-height: 430px;
+}
+
+.job-description-text {
+    color: #99858f;
+
+    font-size: 13px;
+
+    line-height: 1.6;
+
+    margin-bottom: 15px;
+}
+
+.helper-text {
+    margin-top: 10px;
+
+    color: #77656f;
+
+    font-size: 11px;
+
+    line-height: 1.5;
+}
+
+
+/* =========================
+   ERRO
+========================= */
+
+.error-message {
+    display: flex;
+
+    align-items: center;
+
+    gap: 10px;
+
+    padding:
+        14px 17px;
+
+    margin-bottom:
+        22px;
+
+    border:
+        1px solid #8c4f69;
+
+    border-radius:
+        14px;
+
+    background:
+        rgba(
+            202,
+            103,
+            145,
+            0.08
+        );
+
+    color:
+        #f1b0c7;
+
+    font-size:
+        13px;
+}
+
+
+/* =========================
+   BOTÃO ANALISAR
+========================= */
+
+.analyze-button {
+    display: block;
+
+    min-width: 230px;
+
+    margin: 0 auto;
+
+    padding:
+        15px 28px;
+
+    border: none;
+
+    border-radius:
+        15px;
+
+    cursor: pointer;
+
+    background:
+        linear-gradient(
+            135deg,
+            #ce7492,
+            #f09ab8
+        );
+
+    color: white;
+
+    font-size: 15px;
+
+    font-weight: bold;
+
+    box-shadow:
+        0 10px 30px
+        rgba(
+            239,
+            143,
+            178,
+            0.15
+        );
+
+    transition:
+        0.3s ease;
+}
+
+.analyze-button:hover {
+    transform:
+        translateY(-3px);
+
+    box-shadow:
+        0 14px 34px
+        rgba(
+            239,
+            143,
+            178,
+            0.25
+        );
+}
+
+.analyze-button:active {
+    transform:
+        translateY(0);
+}
+
+
+/* =========================
+   RESULTADOS
+========================= */
+
+.results {
+    margin-top: 35px;
+
+    animation:
+        fadeUp
+        0.6s
+        ease
+        both;
+}
+
+
+/* =========================
+   SCORE
+========================= */
+
+.score-card {
+    text-align: center;
+
+    padding: 32px;
+
+    margin-bottom: 24px;
+
+    border:
+        1px solid #4d2d3c;
+
+    border-radius: 24px;
+
+    background:
+        linear-gradient(
+            145deg,
+            #241720,
+            #170f14
+        );
+
+    box-shadow:
+        0 14px 35px
+        rgba(
+            0,
+            0,
+            0,
+            0.20
+        );
+}
+
+.score-label {
+    color: #ef8fb2;
+
+    font-size: 11px;
+
+    font-weight: bold;
+
+    letter-spacing: 2px;
+
+    margin-bottom: 20px;
+}
+
+
+/* CÍRCULO DINÂMICO */
+
+.score-circle {
+    width: 170px;
+    height: 170px;
+
+    margin:
+        0 auto 20px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background:
+        radial-gradient(
+            circle,
+            #24131c 54%,
+            transparent 55%
+        ),
+        conic-gradient(
+            #ef8fb2 0deg,
+            #d16f94 var(--score-angle),
+            #4c2e3c var(--score-angle),
+            #4c2e3c 360deg
+        );
+
+    box-shadow:
+        0 0 35px
+        rgba(
+            239,
+            143,
+            178,
+            0.12
+        );
+
+    transition:
+        0.3s ease;
+}
+
+.score-circle:hover {
+    transform:
+        scale(1.04);
+}
+
+.score-circle span {
+    color: #f6a3c0;
+
+    font-size: 34px;
+
+    font-weight: bold;
+}
+
+.score-description {
+    color: #bbaab3;
+
+    font-size: 15px;
+}
+
+
+/* =========================
+   GRID RESULTADOS
+========================= */
+
+.results-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(2, 1fr);
+
+    gap: 24px;
+
+    margin-bottom: 24px;
+}
+
+
+/* =========================
+   RESULT CARD
+========================= */
+
+.result-card {
+    padding: 26px;
+
+    border:
+        1px solid #4d2d3c;
+
+    border-radius: 22px;
+
+    background:
+        linear-gradient(
+            145deg,
+            #21151c,
+            #180f14
+        );
+
+    box-shadow:
+        0 14px 35px
+        rgba(
+            0,
+            0,
+            0,
+            0.16
+        );
+
+    transition:
+        0.3s ease;
+}
+
+.result-card:hover {
+    transform:
+        translateY(-3px);
+
+    border-color:
+        #755064;
+}
+
+.result-header {
+    display: flex;
+
+    align-items: center;
+
+    gap: 14px;
+
+    margin-bottom: 20px;
+}
+
+.result-icon {
+    font-size: 25px;
+}
+
+.result-label {
+    color: #ef8fb2;
+
+    font-size: 10px;
+
+    font-weight: bold;
+
+    letter-spacing: 1.6px;
+
+    margin-bottom: 5px;
+}
+
+.result-card h2 {
+    font-size: 19px;
+}
+
+
+/* =========================
+   SKILLS
+========================= */
+
+.skills-list {
+    display: flex;
+
+    flex-wrap: wrap;
+
+    gap: 10px;
+}
+
+.skill {
+    display: inline-block;
+
+    padding:
+        9px 13px;
+
+    border:
+        1px solid #523343;
+
+    border-radius:
+        999px;
+
+    background:
+        #140d11;
+
+    color:
+        #decfd6;
+
+    font-size:
+        13px;
+
+    transition:
+        0.25s ease;
+}
+
+.skill:hover {
+    transform:
+        translateY(-2px);
+
+    border-color:
+        #9b617c;
+}
+
+.skill-found {
+    border-color:
+        #5f7e6d;
+
+    background:
+        rgba(
+            86,
+            130,
+            102,
+            0.10
+        );
+
+    color:
+        #b9dec6;
+}
+
+.skill-missing {
+    border-color:
+        #855069;
+
+    background:
+        rgba(
+            202,
+            103,
+            145,
+            0.08
+        );
+
+    color:
+        #f2abc3;
+}
+
+.empty-message {
+    color:
+        #8d7b84;
+
+    font-size:
+        14px;
+}
+
+
+/* =========================
+   TODAS AS SKILLS
+========================= */
+
+.all-skills-card {
+    margin-bottom:
+        24px;
+}
+
+
+/* =========================
+   FOOTER
+========================= */
+
+footer {
+    text-align:
+        center;
+
+    margin-top:
+        38px;
+
+    color:
+        #776971;
+
+    font-size:
+        13px;
+}
+
+
+/* =========================
+   ANIMAÇÃO
+========================= */
+
+.input-card,
+.score-card,
+.result-card {
+    animation:
+        fadeUp
+        0.6s
+        ease
+        both;
+}
+
+@keyframes fadeUp {
+
+    from {
+        opacity: 0;
+
+        transform:
+            translateY(16px);
+    }
+
+    to {
+        opacity: 1;
+
+        transform:
+            translateY(0);
+    }
+
+}
+
+
+/* =========================
+   TABLET
+========================= */
+
+@media (max-width: 900px) {
+
+    .input-grid {
+        grid-template-columns:
+            1fr;
+    }
+
+    .results-grid {
+        grid-template-columns:
+            1fr;
+    }
+
+    .hero h1 {
+        font-size:
+            40px;
+    }
+
+    .job-textarea {
+        min-height:
+            300px;
+    }
+
+}
+
+
+/* =========================
+   CELULAR
+========================= */
+
+@media (max-width: 560px) {
+
+    body {
+        padding:
+            28px 15px;
+    }
+
+    .hero h1 {
+        font-size:
+            33px;
+    }
+
+    .subtitle {
+        font-size:
+            15px;
+    }
+
+    .input-card,
+    .result-card,
+    .score-card {
+        padding:
+            20px;
+    }
+
+    textarea {
+        min-height:
+            230px;
+    }
+
+    .job-textarea {
+        min-height:
+            280px;
+    }
+
+    .analyze-button {
+        width:
+            100%;
+    }
+
+    .score-circle {
+        width:
+            145px;
+
+        height:
+            145px;
+    }
+
+    .score-circle span {
+        font-size:
+            29px;
+    }
+
+    .upload-area {
+        padding:
+            22px 15px;
+    }
+
+}
