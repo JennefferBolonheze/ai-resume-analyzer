@@ -4,13 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <title>AI Resume Analyzer</title>
-
-    <link
-        rel="stylesheet"
-        href="{{ url_for('static', filename='style.css') }}"
-    >
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 
 <body>
@@ -18,72 +13,40 @@
     <main class="container">
 
         <header class="hero">
+            <p class="tag">AI + NLP PROJECT</p>
 
-            <p class="tag">
-                AI + NLP PROJECT
-            </p>
-
-            <h1>
-                🤖 AI Resume Analyzer
-            </h1>
+            <h1>🤖 AI Resume Analyzer</h1>
 
             <p class="subtitle">
                 Compare seu currículo com uma vaga e descubra
                 o nível de compatibilidade entre os dois.
             </p>
-
         </header>
 
-
-        <form
-            method="POST"
-            enctype="multipart/form-data"
-            class="analyzer-form"
-        >
+        <form method="POST" enctype="multipart/form-data" class="analyzer-form">
 
             {% if error %}
-
             <div class="error-message">
                 <span>⚠️</span>
-
-                <p>
-                    {{ error }}
-                </p>
+                <p>{{ error }}</p>
             </div>
-
             {% endif %}
 
-
             <div class="input-grid">
-
-                <!-- CURRÍCULO -->
 
                 <div class="input-card">
 
                     <div class="input-title">
-
-                        <span>
-                            📄
-                        </span>
+                        <span>📄</span>
 
                         <div>
-                            <p class="input-label-small">
-                                RESUME
-                            </p>
-
-                            <h2>
-                                Currículo
-                            </h2>
+                            <p class="input-label-small">RESUME</p>
+                            <h2>Currículo</h2>
                         </div>
-
                     </div>
 
-
                     <div class="upload-area">
-
-                        <span class="upload-icon">
-                            📎
-                        </span>
+                        <span class="upload-icon">📎</span>
 
                         <p class="upload-title">
                             Anexe seu currículo
@@ -93,14 +56,9 @@
                             Envie um arquivo PDF ou TXT de até 5 MB.
                         </p>
 
-
-                        <label
-                            for="resume_file"
-                            class="upload-button"
-                        >
+                        <label for="resume_file" class="upload-button">
                             Escolher arquivo
                         </label>
-
 
                         <input
                             type="file"
@@ -109,32 +67,20 @@
                             accept=".pdf,.txt,application/pdf,text/plain"
                         >
 
-
                         {% if resume_filename %}
-
                         <p class="file-name">
                             ✓ {{ resume_filename }}
                         </p>
-
                         {% endif %}
-
                     </div>
-
 
                     <div class="divider">
-                        <span>
-                            OU
-                        </span>
+                        <span>OU</span>
                     </div>
 
-
-                    <label
-                        for="resume_text"
-                        class="textarea-label"
-                    >
+                    <label for="resume_text" class="textarea-label">
                         ✍️ Cole o currículo manualmente
                     </label>
-
 
                     <textarea
                         id="resume_text"
@@ -142,43 +88,27 @@
                         placeholder="Cole aqui o texto do seu currículo..."
                     >{{ resume_text }}</textarea>
 
-
                     <p class="helper-text">
                         Se você anexar um arquivo,
                         ele será usado no lugar do texto digitado.
                     </p>
-
                 </div>
-
-
-                <!-- VAGA -->
 
                 <div class="input-card">
 
                     <div class="input-title">
-
-                        <span>
-                            💼
-                        </span>
+                        <span>💼</span>
 
                         <div>
-                            <p class="input-label-small">
-                                JOB DESCRIPTION
-                            </p>
-
-                            <h2>
-                                Descrição da vaga
-                            </h2>
+                            <p class="input-label-small">JOB DESCRIPTION</p>
+                            <h2>Descrição da vaga</h2>
                         </div>
-
                     </div>
-
 
                     <p class="job-description-text">
                         Cole abaixo a descrição completa da vaga
                         que deseja comparar com o currículo.
                     </p>
-
 
                     <textarea
                         id="job_text"
@@ -187,111 +117,78 @@
                         placeholder="Exemplo: Buscamos profissional com conhecimento em Python, SQL, Power BI..."
                         required
                     >{{ job_text }}</textarea>
-
                 </div>
 
             </div>
 
-
-            <button
-                type="submit"
-                class="analyze-button"
-            >
+            <button type="submit" class="analyze-button">
                 ✨ Analyze Match
             </button>
 
         </form>
 
-
         {% if result %}
 
         <section class="results">
 
-            <!-- SCORE -->
-
             <div class="score-card">
 
-                <p class="score-label">
-                    MATCH SCORE
-                </p>
-
+                <p class="score-label">MATCH SCORE</p>
 
                 <div
                     class="score-circle"
                     style="--score-angle: {{ result.match_score * 3.6 }}deg;"
                 >
+                    <span>{{ result.match_score }}%</span>
+                </div>
 
-                    <span>
-                        {{ result.match_score }}%
-                    </span>
+                <p class="score-description">
+                    {{ result.assessment }}
+                </p>
+
+                <div class="score-details">
+
+                    <div class="score-detail-item">
+                        <span>Similaridade textual</span>
+                        <strong>{{ result.text_similarity }}%</strong>
+                    </div>
+
+                    <div class="score-detail-item">
+                        <span>Cobertura de skills</span>
+                        <strong>{{ result.skill_coverage }}%</strong>
+                    </div>
 
                 </div>
 
-
-                <p class="score-description">
-
-                    {% if result.match_score >= 70 %}
-
-                        Alta compatibilidade com a vaga.
-
-                    {% elif result.match_score >= 40 %}
-
-                        Compatibilidade moderada com a vaga.
-
-                    {% else %}
-
-                        Baixa compatibilidade com a vaga.
-
-                    {% endif %}
-
-                </p>
-
             </div>
 
-
-            <!-- RESULTADOS -->
-
             <div class="results-grid">
-
-                <!-- SKILLS ENCONTRADAS -->
 
                 <div class="result-card">
 
                     <div class="result-header">
-
-                        <span class="result-icon">
-                            ✅
-                        </span>
+                        <span class="result-icon">✅</span>
 
                         <div>
-                            <p class="result-label">
-                                MATCHED SKILLS
-                            </p>
-
-                            <h2>
-                                Skills encontradas
-                            </h2>
+                            <p class="result-label">MATCHED SKILLS</p>
+                            <h2>Competências compatíveis</h2>
                         </div>
-
                     </div>
-
 
                     <div class="skills-list">
 
                         {% if result.matched_skills %}
 
                             {% for skill in result.matched_skills %}
-
                                 <span class="skill skill-found">
                                     {{ skill }}
                                 </span>
-
                             {% endfor %}
 
                         {% else %}
 
                             <p class="empty-message">
-                                Nenhuma skill em comum encontrada.
+                                Nenhuma competência em comum encontrada.
                             </p>
 
                         {% endif %}
@@ -300,46 +197,31 @@
 
                 </div>
 
-
-                <!-- SKILLS FALTANTES -->
-
                 <div class="result-card">
 
                     <div class="result-header">
-
-                        <span class="result-icon">
-                            🎯
-                        </span>
+                        <span class="result-icon">⚠️</span>
 
                         <div>
-                            <p class="result-label">
-                                MISSING SKILLS
-                            </p>
-
-                            <h2>
-                                Skills que faltam
-                            </h2>
+                            <p class="result-label">MISSING SKILLS</p>
+                            <h2>O que falta para a vaga</h2>
                         </div>
-
                     </div>
-
 
                     <div class="skills-list">
 
                         {% if result.missing_skills %}
 
                             {% for skill in result.missing_skills %}
-
                                 <span class="skill skill-missing">
                                     {{ skill }}
                                 </span>
-
                             {% endfor %}
 
                         {% else %}
 
                             <p class="empty-message">
-                                Nenhuma skill detectada como faltante.
+                                Nenhuma competência detectada como faltante.
                             </p>
 
                         {% endif %}
@@ -350,40 +232,90 @@
 
             </div>
 
+            <div class="result-card recommendation-card">
 
-            <!-- SKILLS DO CURRÍCULO -->
+                <div class="result-header">
+                    <span class="result-icon">💪</span>
+
+                    <div>
+                        <p class="result-label">STRENGTHS</p>
+                        <h2>Pontos fortes</h2>
+                    </div>
+                </div>
+
+                <div class="feedback-list">
+
+                    {% for strength in result.strengths %}
+                        <div class="feedback-item">
+                            <span>✓</span>
+                            <p>{{ strength }}</p>
+                        </div>
+                    {% endfor %}
+
+                </div>
+
+            </div>
+
+            <div class="result-card recommendation-card">
+
+                <div class="result-header">
+                    <span class="result-icon">💡</span>
+
+                    <div>
+                        <p class="result-label">RECOMMENDATIONS</p>
+                        <h2>Como melhorar para a vaga</h2>
+                    </div>
+                </div>
+
+                <div class="feedback-list">
+
+                    {% for recommendation in result.recommendations %}
+                        <div class="feedback-item">
+                            <span>→</span>
+                            <p>{{ recommendation }}</p>
+                        </div>
+                    {% endfor %}
+
+                </div>
+
+            </div>
+
+            <div class="result-card assessment-card">
+
+                <div class="result-header">
+                    <span class="result-icon">🎯</span>
+
+                    <div>
+                        <p class="result-label">OVERALL ASSESSMENT</p>
+                        <h2>Avaliação geral</h2>
+                    </div>
+                </div>
+
+                <p class="assessment-text">
+                    {{ result.assessment }}
+                </p>
+
+            </div>
 
             <div class="result-card all-skills-card">
 
                 <div class="result-header">
-
-                    <span class="result-icon">
-                        🧠
-                    </span>
+                    <span class="result-icon">🧠</span>
 
                     <div>
-                        <p class="result-label">
-                            RESUME ANALYSIS
-                        </p>
-
-                        <h2>
-                            Skills identificadas no currículo
-                        </h2>
+                        <p class="result-label">RESUME ANALYSIS</p>
+                        <h2>Skills identificadas no currículo</h2>
                     </div>
-
                 </div>
-
 
                 <div class="skills-list">
 
                     {% if result.resume_skills %}
 
                         {% for skill in result.resume_skills %}
-
                             <span class="skill">
                                 {{ skill }}
                             </span>
-
                         {% endfor %}
 
                     {% else %}
@@ -402,15 +334,12 @@
 
         {% endif %}
 
-
         <footer>
-
             AI Resume Analyzer
             • Python
             • Flask
             • Scikit-learn
             • NLP
-
         </footer>
 
     </main>

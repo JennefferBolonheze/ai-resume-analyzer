@@ -984,7 +984,7 @@ footer {
     .job-textarea {
         min-height:
             280px;
-    }
+    }python app.py
 
     .analyze-button {
         width:
@@ -1007,6 +1007,115 @@ footer {
     .upload-area {
         padding:
             22px 15px;
+    }
+
+}
+
+
+/* =========================
+   DETALHES DO SCORE
+========================= */
+
+.score-details {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 14px;
+    max-width: 560px;
+    margin: 24px auto 0;
+}
+
+.score-detail-item {
+    padding: 14px 16px;
+    border: 1px solid #4d2d3c;
+    border-radius: 14px;
+    background: rgba(239, 143, 178, 0.04);
+}
+
+.score-detail-item span {
+    display: block;
+    margin-bottom: 6px;
+    color: #99858f;
+    font-size: 12px;
+}
+
+.score-detail-item strong {
+    color: #f3a1be;
+    font-size: 18px;
+}
+
+
+/* =========================
+   RECOMENDAÇÕES E FEEDBACK
+========================= */
+
+.recommendation-card,
+.assessment-card {
+    margin-bottom: 24px;
+}
+
+.feedback-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.feedback-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 14px 16px;
+    border: 1px solid #4d2d3c;
+    border-radius: 14px;
+    background: rgba(239, 143, 178, 0.035);
+}
+
+.feedback-item > span {
+    flex-shrink: 0;
+    color: #ef8fb2;
+    font-size: 16px;
+    font-weight: bold;
+    line-height: 1.6;
+}
+
+.feedback-item p {
+    color: #cbbac3;
+    font-size: 14px;
+    line-height: 1.7;
+}
+
+.assessment-card {
+    border-color: #6f4056;
+    background:
+        linear-gradient(
+            145deg,
+            rgba(239, 143, 178, 0.08),
+            #180f14
+        );
+}
+
+.assessment-text {
+    color: #d7c6cf;
+    font-size: 15px;
+    line-height: 1.8;
+}
+
+
+/* =========================
+   RESPONSIVO - NOVAS ÁREAS
+========================= */
+
+@media (max-width: 560px) {
+
+    .score-details {
+        grid-template-columns: 1fr;
+    }
+
+    .feedback-item {
+        padding: 13px 14px;
+    }
+
+    .assessment-text {
+        font-size: 14px;
     }
 
 }
